@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>شرح رفع موقعك على GitHub Pages | 0xDaVinci</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    .blog-post {
+      font-family: 'Cairo', 'Tajawal', Arial, sans-serif;
+      font-size: 1.18rem;
+      line-height: 2.1;
+      text-align: right;
+      margin-top: 90px;
+      padding-bottom: 2rem;
+      direction: rtl;
+    }
+    .blog-post h1, .blog-post h2, .blog-post h3 {
+      font-family: 'Cairo', 'Share Tech Mono', monospace;
+    }
+    .blog-post pre, .blog-post code {
+      direction: ltr;
+      text-align: left;
+      font-size: 1rem;
+    }
+    @media (max-width: 700px) {
+      .blog-post {
+        font-size: 1.05rem;
+        line-height: 2.05;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+      }
+      .blog-post h1 {
+        font-size: 1.35rem;
+      }
+      .blog-post h2 {
+        font-size: 1.13rem;
+      }
+      .blog-post h3 {
+        font-size: 1.05rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header" role="banner">
+      <a class="site-title" href="../index.html" aria-label="0xDaVinci Home">0xDaVinci</a>
+      <nav class="nav" role="navigation" aria-label="Main Navigation">
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">          
+          <li><a href="../index.html">Blogs</a></li>
+          <li><a href="../info.html">Info</a></li>
+        </ul>
+      </nav>
+    </header>
+  <main class="blog-post" role="main">
+    <article>
+      <h1>شرح رفع موقعك على GitHub Pages</h1>
+      <section>
+        <h2>مقدمة</h2>
+        <p>
+          في هذا الشرح ستتعلم خطوة بخطوة كيف ترفع موقعك مجانًا على الإنترنت باستخدام GitHub Pages. يمكنك مشاهدة <a href="https://www.youtube.com/watch?v=UEXX8C522YM" target="_blank" rel="noopener">فيديو الشرح علي يوتيوب</a>.
+        </p>
+      </section>
+      <section>
+        <h2>خطوات رفع الموقع على GitHub Pages</h2>
+        <ol style="text-align:right">
+          <li><b>سجّل الدخول إلى GitHub:</b> اذهب إلى <a href="https://github.com/" target="_blank">github.com</a> وسجّل الدخول أو أنشئ حساب جديد إذا لم يكن لديك.</li>
+          <li><b>أنشئ مستودع (Repository) جديد:</b> اضغط على زر <b>New</b> في الصفحة الرئيسية بعد تسجيل الدخول، ثم اختر اسمًا للمستودع (مثلاً: <code>my-website</code>)، واجعل المستودع <b>Public</b>، ثم اضغط <b>Create repository</b>.</li>
+          <li><b>رفع ملفات موقعك:</b> يمكنك رفع الملفات يدويًا عبر زر <b>Upload files</b> أو باستخدام Git على جهازك</li>
+          <li><b>تفعيل GitHub Pages:</b> من صفحة المستودع على GitHub، ادخل على <b>Settings</b> ← <b>Pages</b>، ثم اختر الفرع <b>main</b> والمجلد <b>/ (root)</b> واضغط <b>Save</b>.</li>
+          <li>سيظهر لك رابط موقعك بعد ثوانٍ في نفس الصفحة (غالبًا: <code>https://YOUR-USERNAME.github.io/REPO-NAME/</code>).</li>
+        </ol>
+      </section>
+      <section>
+        <h2>مثال على كود HTML يمكن رفعه</h2>
+        <pre dir="ltr" style="background:#181c22;color:#39ff14;padding:1em;border-radius:8px;overflow-x:auto;">
+&lt;h1&gt;0xDaVinci&lt;/h1&gt;
+
+&lt;script&gt;
+    alert("سيديهاتك كلها معاي")
+&lt;/script&gt;
+        </pre>
+      </section>
+      <section>
+        <h2>ملاحظات هامة</h2>
+        <ul>
+          <li>تأكد أن اسم ملف الصفحة الرئيسية هو <code>index.html</code>.</li>
+          <li>يمكنك تعديل الكود أو إضافة صفحات جديدة بحرية.</li>
+          <li>لمشاهدة فيديو الشرح العملي خطوة بخطوة: <a href="https://www.youtube.com/watch?v=UEXX8C522YM" target="_blank" rel="noopener">اضغط هنا</a>.</li>
+        </ul>
+      </section>
+    </article>
+  </main>
+  <div class="scanlines"></div>
+  <script src="../js/main.js"></script>
+</body>
+</html>
