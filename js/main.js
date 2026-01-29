@@ -93,8 +93,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (siteTitle) {
     siteTitle.addEventListener('click', function(e) {
       e.preventDefault();
-      if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname === '/index.html') return;
-      fadeOutInNavigation('index.html');
+      // Use relative path to root index.html (works with file:// and http(s)://)
+      if (window.location.pathname === '/' || window.location.pathname.endsWith('/index.html')) return;
+      window.location.href = (window.location.pathname.includes('/blog/') || window.location.pathname.includes('/assets/') || window.location.pathname.includes('/css/') || window.location.pathname.includes('/js/')) ? '../index.html' : 'index.html';
     });
   }
   // Blog card navigation
