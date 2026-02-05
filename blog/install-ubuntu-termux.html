@@ -72,10 +72,30 @@
                 <h2>خطوات التثبيت</h2>
                 <ol style="text-align:right">
                     <li>قم بتحميل وتثبيت تطبيق <b>Termux</b> من <a href="https://github.com/termux/termux-app/releases" target="_blank">صفحة GitHub الرسمية</a>.</li>
+                    <li>بعد تثبيت Termux، افتحه واكتب الأوامر التالية:
+                        <pre dir="ltr" style="background:#181c22;color:#39ff14;padding:1em;border-radius:8px;overflow-x:auto;">
+        pkg update
+        pkg upgrade
+                        </pre>
+                    </li>
                     <li>قم بتحميل وتثبيت تطبيق <b>Andronix</b> من <a href="https://play.google.com/store/apps/details?id=studio.com.techriz.andronix" target="_blank">Google Play</a>.</li>
-                    <li>افتح تطبيق Andronix واختر توزيعة Ubuntu.</li>
-                    <li>اتبع التعليمات التي تظهر لك في التطبيق، حيث سيعطيك أوامر تقوم بنسخها ولصقها في تطبيق Termux.</li>
-                    <li>انتظر حتى ينتهي التثبيت، ثم يمكنك الدخول إلى نظام Ubuntu من خلال Termux.</li>
+                    <li>افتح تطبيق Andronix، واختر توزيعة <b>Ubuntu</b> (نسخة CLI).</li>
+                    <li>سيظهر لك التطبيق أوامر، قم بنسخها بالكامل.</li>
+                    <li>ارجع إلى تطبيق Termux، والصق الأوامر المنسوخة واضغط Enter.</li>
+                    <li>انتظر حتى ينتهي التثبيت تمامًا.</li>
+                    <li>بعد انتهاء التثبيت، اكتب الأوامر التالية داخل Termux:
+                        <pre dir="ltr" style="background:#181c22;color:#39ff14;padding:1em;border-radius:8px;overflow-x:auto;">
+        apt update
+        apt upgrade
+        apt install bash-completion
+        exit
+                        </pre>
+                    </li>
+                    <li>للعودة إلى نظام Ubuntu في أي وقت، اكتب الأمر التالي في Termux:
+                        <pre dir="ltr" style="background:#181c22;color:#39ff14;padding:1em;border-radius:8px;overflow-x:auto;">
+        ./start-ubuntu22.sh
+                        </pre>
+                    </li>
                 </ol>
             </section>
             <section>
@@ -95,7 +115,7 @@
             <section>
                 <h2>فيديو شرح</h2>
                 <p>لمزيد من التوضيح يمكنك مشاهدة هذا الفيديو:<br>
-                    <a href="#" target="_blank">رابط فيديو الشرح</a>
+                    <a href="https://www.tiktok.com/@davinci0x01/video/7603172188358839573" target="_blank">رابط فيديو الشرح</a>
                 </p>
             </section>
         </article>

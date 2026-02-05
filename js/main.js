@@ -16,6 +16,13 @@ const blogPosts = [
     url: 'blog/hacking-prank.html',
     image: 'assets/blogs/hacking-prank.png'
   },
+  {
+    title: 'شرح تثبيت لينكس علي الهاتف بدون رووت',
+    desc: 'دليل خطوة بخطوة لتثبيت Ubuntu على Termux عبر Andronix مع جميع الأوامر وروابط التحميل.',
+    meta: 'Linux · Ubuntu · Feb 2026',
+    url: 'blog/install-ubuntu-termux.html',
+    image: 'assets/blogs/install-ubuntu-termux.png'
+  },
 ];
 
 // Preload images utility
