@@ -427,7 +427,7 @@
     return '<header class="site-header" id="top">\n  <div class="wrap header-inner">\n' +
       '    <a class="brand" href="' + root + 'index.html" aria-label="0xDaVinci — home"><svg class="brand-mark" aria-hidden="true"><use href="#dv-mark"/></svg><span class="brand-name">0xDaVinci</span></a>\n' +
       '    <nav class="nav" aria-label="Main">\n      <ul class="nav-links" id="nav-links">' +
-      a('index.html#articles', 'Articles', 'articles') + a('info.html', 'About', 'about') +
+      a('articles.html', 'Articles', 'articles') + a('info.html', 'About', 'about') +
       '</ul>\n      <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle light / dark">' + ICON_THEME + '</button>\n' +
       '      <button class="icon-btn hamburger" type="button" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span></button>\n' +
       '    </nav>\n  </div>\n</header>';
@@ -464,7 +464,7 @@
     var m = meta;
     var cover = opts && opts.cover != null ? opts.cover : assetUrl(m.cover, root);
     return '<header class="article-head">\n' +
-      '  <a class="back-link" href="' + root + 'index.html#articles" dir="ltr"><span aria-hidden="true">←</span> all articles</a>\n' +
+      '  <a class="back-link" href="' + root + 'articles.html" dir="ltr"><span aria-hidden="true">←</span> all articles</a>\n' +
       (m.tags.length ? '  <div class="article-tags">' + tagsHtml(m.tags) + '</div>\n' : '') +
       '  <h1 class="article-title">' + esc(m.title) + '</h1>\n' +
       (m.description ? '  <p class="article-desc">' + esc(m.description) + '</p>\n' : '') +
@@ -486,7 +486,7 @@
     var cover = assetUrl(p.cover, root);
     return '<a class="card' + (featured ? ' card--featured' : '') + '" href="' + root + 'blog/' + p.slug + '.html" data-slug="' + p.slug + '">' +
       '<div class="card-media">' + (cover ? '<img src="' + esc(cover) + '" alt="" loading="lazy" decoding="async">' : '<svg class="card-placeholder" aria-hidden="true"><use href="#dv-mark"/></svg>') +
-      '<span class="card-index">' + String(index + 1).padStart(2, '0') + '</span></div>' +
+      '</div>' +
       '<div class="card-body" lang="' + p.lang + '" dir="' + p.dir + '">' +
       (p.tags.length ? '<div class="card-tags">' + tagsHtml(p.tags) + '</div>' : '') +
       '<h3 class="card-title">' + esc(p.title) + '</h3>' +
