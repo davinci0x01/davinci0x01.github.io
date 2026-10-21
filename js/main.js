@@ -97,8 +97,10 @@
     if (seen || reduceMotion) { loader.remove(); return done(); }
     document.documentElement.classList.add('booting');
 
+    var label = $('[data-loader-label]', loader);
     var pct = $('[data-loader-pct]', loader);
     var bar = $('.loader-bar span', loader);
+    var phases = ['init', 'sync', 'stable', 'ready'];
     var images = POSTS.map(function (p) { return DV.assetUrl(p.cover, root); }).filter(Boolean);
     var loaded = 0;
     images.forEach(function (src) {
@@ -116,8 +118,10 @@
       var value = Math.round(eased * 100);
       pct.textContent = String(value).padStart(3, '0');
       bar.style.transform = 'scaleX(' + eased + ')';
+      label.textContent = phases[Math.min(phases.length - 1, Math.floor(eased * phases.length))];
       if (p < 1 && now - start < 4000) return requestAnimationFrame(tick);
       pct.textContent = '100';
+      label.textContent = 'ready';
       bar.style.transform = 'scaleX(1)';
       setTimeout(function () {
         loader.classList.add('done');
@@ -147,10 +151,9 @@
     var allTags = [];
     POSTS.forEach(function (p) { (p.tags || []).forEach(function (t) { if (allTags.indexOf(t) === -1) allTags.push(t); }); });
     $$('[data-stat="topics"]').forEach(function (el) { el.textContent = String(allTags.length).padStart(2, '0'); });
-    $$('[data-stat="latest"]').forEach(function (el) { if (POSTS[0]) el.textContent = DV.formatDate(POSTS[0].date).replace(/^\d+\s/, ''); });
 
     if (tagBox) {
-      tagBox.innerHTML = ['<button type="button" class="chip" data-tag="" aria-pressed="true">الكل</button>']
+      tagBox.innerHTML = ['<button type="button" class="chip" data-tag="" aria-pressed="true">all</button>']
         .concat(allTags.map(function (t) { return '<button type="button" class="chip" data-tag="' + DV.esc(t) + '" aria-pressed="false">#' + DV.esc(t) + '</button>'; }))
         .join('');
       tagBox.addEventListener('click', function (e) {
@@ -172,8 +175,8 @@
       var featured = !q && !activeTag;
       list.innerHTML = filtered.length
         ? filtered.map(function (p, i) { return DV.cardHtml(p, root, POSTS.indexOf(p), featured && i === 0); }).join('')
-        : '<div class="empty">لا توجد نتائج لـ «' + DV.esc(search ? search.value : '') + '»</div>';
-      if (count) count.textContent = filtered.length + ' من ' + POSTS.length;
+        : '<div class="empty">no signal — nothing matches “' + DV.esc(search ? search.value : '') + '”</div>';
+      if (count) count.textContent = String(filtered.length).padStart(2, '0') + ' / ' + String(POSTS.length).padStart(2, '0');
       if (animate) $$('.card', list).forEach(function (c) { c.classList.add('reveal'); });
     }
     render(true);
@@ -236,14 +239,14 @@
         ? $$('.tl-cmd .tl-text', fig).map(function (s) { return s.textContent; }).join('\n')
         : code.textContent;
       copyText(text).then(function () {
-        btn.textContent = 'تم النسخ';
+        btn.textContent = 'copied';
         btn.classList.add('copied');
-        setTimeout(function () { btn.textContent = 'نسخ'; btn.classList.remove('copied'); }, 1600);
+        setTimeout(function () { btn.textContent = 'copy'; btn.classList.remove('copied'); }, 1600);
       });
       return;
     }
     var link = e.target.closest('[data-copy-link]');
-    if (link) copyText(location.href.split('#')[0]).then(function () { toast('تم نسخ الرابط'); });
+    if (link) copyText(location.href.split('#')[0]).then(function () { toast('link copied'); });
   });
 
   function initArticle() {
