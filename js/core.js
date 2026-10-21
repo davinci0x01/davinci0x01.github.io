@@ -1,7 +1,7 @@
 /*!
  * core.js — 0xDaVinci shared core
  * Markdown renderer + page templates.
- * Used by the site (cards), the local editor and tools/rebuild-posts.js (Node).
+ * Used by the site (cards), the local editor and the build script (Node).
  */
 (function (root, factory) {
   var api = factory();
@@ -14,10 +14,10 @@
   var SITE = {
     name: '0xDaVinci',
     url: 'https://davinci0x01.github.io/',
-    tagline: 'No noise. Just signal.',
+    tagline: 'شروحات عملية في الأمن السيبراني ولينكس والبرمجة.',
     social: [
       { name: 'GitHub', handle: 'DaVinci0x01', url: 'https://github.com/DaVinci0x01' },
-      { name: 'X / Twitter', handle: '@DaVinci0x01', url: 'https://twitter.com/DaVinci0x01' },
+      { name: 'X', handle: '@DaVinci0x01', url: 'https://twitter.com/DaVinci0x01' },
       { name: 'YouTube', handle: '@davinci0x01', url: 'https://youtube.com/@davinci0x01' },
       { name: 'TikTok', handle: '@davinci0x01', url: 'https://tiktok.com/@davinci0x01' }
     ]
@@ -26,7 +26,7 @@
   var MARK_PATH = 'M509.6 756.2C508.6 752.0 504.1 739.0 499.5 727.5C471.5 656.9 467.2 646.6 443.0 592.0C438.5 581.8 433.1 569.7 431.0 565.0C428.9 560.3 423.9 549.5 419.8 540.9L412.3 525.3L416.6 522.6C419.0 521.1 424.0 517.6 427.7 514.9C431.4 512.2 434.7 510.0 435.1 510.0C436.1 510.0 441.8 523.5 463.7 577.5C481.6 621.7 487.4 635.7 496.9 658.0C502.0 669.8 507.3 682.3 508.7 685.7L511.4 692.0L517.7 676.2C521.2 667.6 528.3 650.6 533.5 638.5C545.3 610.7 543.6 614.8 561.0 572.5C569.1 552.7 578.4 530.3 581.5 522.8L587.2 509.1L592.3 512.9C595.2 515.0 600.5 518.6 604.2 520.9L610.8 525.1L604.8 537.8C568.9 613.8 522.5 724.5 514.5 753.5C513.0 759.0 511.7 763.6 511.5 763.7C511.4 763.9 510.6 760.5 509.6 756.2ZM509.7 612.3C508.9 610.2 502.6 596.8 495.8 582.5C488.9 568.2 481.9 553.6 480.3 550.0C478.6 546.4 471.5 531.7 464.6 517.2C451.8 490.5 451.2 489.0 453.1 489.0C454.4 489.0 466.2 481.1 467.5 479.2C468.8 477.6 467.6 475.4 480.0 502.5C491.1 526.4 501.5 548.8 507.2 560.7L511.6 569.8L526.4 537.7C534.6 520.0 544.0 499.3 547.4 491.7C552.3 480.6 553.7 478.3 554.6 479.5C555.9 481.2 566.4 488.2 569.3 489.3C570.3 489.7 571.0 490.3 570.8 490.8C570.6 491.2 569.1 494.2 567.6 497.5C550.8 533.7 544.5 547.0 534.5 568.0C528.1 581.5 520.6 597.5 517.8 603.5C511.6 617.0 511.6 617.0 509.7 612.3ZM609.5 514.1C606.8 512.0 598.2 505.9 590.5 500.5C582.8 495.1 575.0 489.4 573.2 487.8C571.4 486.3 565.2 481.9 559.5 478.0C553.8 474.2 544.4 467.8 538.8 463.8C523.8 453.3 512.7 446.0 511.4 446.0C510.8 446.0 502.7 451.2 493.4 457.7C484.1 464.1 471.8 472.5 466.0 476.4C460.2 480.2 451.0 486.8 445.5 491.0C435.7 498.5 409.3 517.0 408.5 517.0C408.2 517.0 406.2 513.3 403.9 508.8L399.8 500.7L402.2 498.8C415.9 488.0 476.9 444.7 487.8 438.0C490.6 436.2 493.0 434.3 493.0 433.8C493.0 433.0 485.1 427.7 453.5 407.5C444.9 402.0 435.2 395.5 431.8 393.2C428.5 390.8 425.9 389.2 426.1 389.7C427.1 392.0 439.5 417.6 448.1 435.0L457.7 454.5L451.3 458.5C447.8 460.7 444.0 463.3 442.9 464.3L440.9 466.1L434.9 453.3C427.0 436.8 416.4 412.7 403.8 383.1C398.3 370.1 391.8 355.1 389.4 349.7C384.2 338.2 384.2 338.2 387.8 341.0C390.6 343.3 409.1 355.4 445.2 378.5C470.7 394.9 475.8 398.2 496.0 411.2C504.2 416.6 511.2 421.0 511.5 421.0C511.7 421.0 520.4 415.5 530.7 408.7C541.0 401.9 559.1 390.3 570.8 382.9C595.0 367.7 632.1 343.8 636.2 340.9C638.9 339.0 640.1 339.5 638.1 341.6C637.5 342.1 634.9 347.7 632.1 354.0C629.4 360.3 624.6 371.4 621.5 378.5C618.4 385.6 613.2 397.6 610.1 405.0C605.0 416.7 583.2 464.9 582.4 465.9C582.2 466.1 581.5 465.6 580.7 464.8C579.9 464.0 576.3 461.5 572.6 459.1C567.0 455.4 566.1 454.4 566.6 452.7C567.0 451.5 574.0 437.1 582.1 420.6C590.3 404.1 596.8 390.5 596.6 390.3C596.4 390.1 589.5 394.3 581.4 399.6C555.0 416.8 538.6 427.5 533.7 430.6L528.8 433.7L537.2 439.3C541.8 442.3 548.9 447.2 553.1 450.2C557.3 453.1 568.3 460.8 577.6 467.3C592.8 477.9 612.8 492.4 620.4 498.3L623.3 500.5L618.9 509.1L614.5 517.8L609.5 514.1ZM388.5 477.3C346.5 395.3 296.5 314.5 254.8 261.1C251.1 256.4 248.3 252.4 248.5 252.1C248.7 251.9 251.1 253.5 253.7 255.7C256.3 257.9 260.8 261.1 263.5 262.9C266.2 264.8 282.9 276.3 300.5 288.5C318.1 300.7 339.9 315.9 349.0 322.1L365.4 333.5L372.2 348.5C380.2 366.3 392.7 397.4 400.5 419.0C403.6 427.5 409.0 441.8 412.6 450.7C416.1 459.7 419.9 469.2 420.9 472.0L422.8 476.9L415.1 481.7C410.9 484.3 405.3 487.9 402.5 489.7C399.8 491.5 397.3 493.0 397.0 493.0C396.7 493.0 392.9 485.9 388.5 477.3ZM614.9 486.1C609.1 482.3 603.3 478.9 602.1 478.5C601.0 478.2 600.0 477.6 600.0 477.2C600.0 476.2 603.9 466.1 617.0 433.0C623.2 417.3 631.1 397.3 634.5 388.5C641.4 370.9 652.4 345.1 656.1 337.8L658.5 333.1L684.5 315.3C722.2 289.3 734.7 280.7 741.5 275.9C744.8 273.6 751.1 269.2 755.5 266.2C759.9 263.2 766.2 258.6 769.4 256.1C776.3 250.9 776.2 251.2 766.0 264.5C747.7 288.3 708.6 346.9 688.8 380.0C672.2 407.8 645.6 455.8 633.6 479.8C630.0 487.0 626.7 493.0 626.2 493.0C625.8 493.0 620.7 489.9 614.9 486.1Z';
   var FONTS = 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap';
   var HLJS = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js';
-  var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var MONTHS = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
 
   // ========== UTILS ========== //
   function esc(s) {
@@ -63,7 +63,7 @@
   function formatDate(iso) {
     var m = String(iso || '').match(/^(\d{4})-(\d{2})-(\d{2})/);
     if (!m) return '';
-    return MONTHS[+m[2] - 1] + ' ' + m[3] + ', ' + m[1];
+    return (+m[3]) + ' ' + MONTHS[+m[2] - 1] + ' ' + m[1];
   }
   function today() {
     var d = new Date();
@@ -74,6 +74,11 @@
     return m ? m.length : 0;
   }
   function readingTime(md) { return Math.max(1, Math.ceil(wordCount(md) / 180)); }
+  // Arabic count: دقيقة · دقيقتين · 3 دقائق · 11 دقيقة
+  function minutes(n) {
+    n = +n || 1;
+    return n === 1 ? 'دقيقة' : n === 2 ? 'دقيقتين' : n <= 10 ? n + ' دقائق' : n + ' دقيقة';
+  }
 
   // ========== INLINE ========== //
   function link(url, html, title) {
@@ -148,7 +153,7 @@
     html: /^\s*<\/?(div|section|details|summary|figure|iframe|table|p|ul|ol|blockquote|pre|aside|video|audio|center|hr|img|h[1-6]|nav|br)\b/i,
     tableSep: /^\s*\|?\s*:?-{2,}:?\s*(\|\s*:?-{2,}:?\s*)*\|?\s*$/
   };
-  var CALLOUTS = { note: 'Note', info: 'Info', tip: 'Tip', warning: 'Warning', danger: 'Danger', success: 'Done' };
+  var CALLOUTS = { note: 'ملاحظة', info: 'معلومة', tip: 'نصيحة', warning: 'تحذير', danger: 'خطر', success: 'تم' };
   var TERMINAL = { terminal: 1, term: 1, console: 1, 'shell-session': 1, shell: 1 };
 
   function indentOf(l) { return l.match(/^\s*/)[0].length; }
@@ -178,7 +183,7 @@
     return '<figure class="code' + (term ? ' code--term' : '') + '" dir="ltr">' +
       '<figcaption class="code-head"><span class="code-lang">' + esc(label) + '</span>' +
       (title ? '<span class="code-title">' + esc(title) + '</span>' : '') +
-      '<button type="button" class="code-copy" aria-label="Copy code">copy</button></figcaption>' +
+      '<button type="button" class="code-copy" aria-label="نسخ الكود">نسخ</button></figcaption>' +
       '<pre><code class="' + (term || !lang || lang === 'text' ? 'nohighlight' : 'language-' + esc(lang)) + '">' + body + '</code></pre></figure>';
   }
 
@@ -211,7 +216,7 @@
         '</div><div class="callout-body">' + renderBlocks(body, ctx) + '</div></aside>';
     }
     if (kind === 'details' || kind === 'spoiler') {
-      return '<details class="spoiler"><summary>' + (arg ? inline(arg, ctx) : 'Show') + '</summary><div class="spoiler-body">' +
+      return '<details class="spoiler"><summary>' + (arg ? inline(arg, ctx) : 'عرض') + '</summary><div class="spoiler-body">' +
         renderBlocks(body, ctx) + '</div></details>';
     }
     if (kind === 'links' || kind === 'resources') return linkGrid(arg, body);
@@ -425,11 +430,11 @@
       return '<li><a href="' + root + href + '"' + (active === key ? ' aria-current="page"' : '') + '>' + label + '</a></li>';
     }
     return '<header class="site-header" id="top">\n  <div class="wrap header-inner">\n' +
-      '    <a class="brand" href="' + root + 'index.html" aria-label="0xDaVinci — home"><svg class="brand-mark" aria-hidden="true"><use href="#dv-mark"/></svg><span class="brand-name">0xDaVinci</span></a>\n' +
-      '    <nav class="nav" aria-label="Main">\n      <ul class="nav-links" id="nav-links">' +
-      a('articles.html', 'Articles', 'articles') + a('info.html', 'About', 'about') +
-      '</ul>\n      <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle light / dark">' + ICON_THEME + '</button>\n' +
-      '      <button class="icon-btn hamburger" type="button" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span></button>\n' +
+      '    <a class="brand" href="' + root + 'index.html" aria-label="0xDaVinci — الرئيسية"><svg class="brand-mark" aria-hidden="true"><use href="#dv-mark"/></svg><span class="brand-name">0xDaVinci</span></a>\n' +
+      '    <nav class="nav" aria-label="القائمة الرئيسية">\n      <ul class="nav-links" id="nav-links">' +
+      a('articles.html', 'المقالات', 'articles') + a('info.html', 'من أنا', 'about') +
+      '</ul>\n      <button class="icon-btn" type="button" data-theme-toggle aria-label="تبديل الوضع الفاتح والداكن">' + ICON_THEME + '</button>\n' +
+      '      <button class="icon-btn hamburger" type="button" id="hamburger" aria-label="القائمة" aria-expanded="false" aria-controls="nav-links"><span></span><span></span></button>\n' +
       '    </nav>\n  </div>\n</header>';
   }
   function footerHtml(root) {
@@ -464,18 +469,17 @@
     var m = meta;
     var cover = opts && opts.cover != null ? opts.cover : assetUrl(m.cover, root);
     return '<header class="article-head">\n' +
-      '  <a class="back-link" href="' + root + 'articles.html" dir="ltr"><span aria-hidden="true">←</span> all articles</a>\n' +
+      '  <a class="back-link" href="' + root + 'articles.html"><span aria-hidden="true">→</span> كل المقالات</a>\n' +
       (m.tags.length ? '  <div class="article-tags">' + tagsHtml(m.tags) + '</div>\n' : '') +
       '  <h1 class="article-title">' + esc(m.title) + '</h1>\n' +
       (m.description ? '  <p class="article-desc">' + esc(m.description) + '</p>\n' : '') +
-      '  <div class="article-meta" dir="ltr"><time datetime="' + m.date + '">' + formatDate(m.date) + '</time><span>' + m.readingTime +
-      ' min read</span><span>by 0xDaVinci</span></div>\n' +
+      '  <div class="article-meta"><time datetime="' + m.date + '">' + formatDate(m.date) + '</time><span>وقت القراءة: ' + minutes(m.readingTime) + '</span></div>\n' +
       (cover ? '  <figure class="article-cover"><img src="' + esc(cover) + '" alt="" decoding="async"></figure>\n' : '') +
       '</header>';
   }
   function tocHtml(headings) {
     if (headings.length < 2) return '';
-    return '<aside class="toc" aria-label="Contents"><div class="toc-inner"><div class="toc-label">contents</div><ol>' +
+    return '<aside class="toc" aria-label="المحتويات"><div class="toc-inner"><div class="toc-label">المحتويات</div><ol>' +
       headings.map(function (h) {
         return '<li class="toc-l' + h.level + '"><a href="#' + esc(h.id) + '">' + h.text + '</a></li>';
       }).join('') + '</ol></div></aside>';
@@ -491,7 +495,7 @@
       (p.tags.length ? '<div class="card-tags">' + tagsHtml(p.tags) + '</div>' : '') +
       '<h3 class="card-title">' + esc(p.title) + '</h3>' +
       (p.description ? '<p class="card-desc">' + esc(p.description) + '</p>' : '') +
-      '<div class="card-meta" dir="ltr"><time datetime="' + p.date + '">' + formatDate(p.date) + '</time><span>' + p.readingTime + ' min</span><span class="card-go" aria-hidden="true">→</span></div>' +
+      '<div class="card-meta"><time datetime="' + p.date + '">' + formatDate(p.date) + '</time><span>' + minutes(p.readingTime) + '</span><span class="card-go" aria-hidden="true">←</span></div>' +
       '</div><i class="tick tick--tl"></i><i class="tick tick--tr"></i><i class="tick tick--bl"></i><i class="tick tick--br"></i></a>';
   }
 
@@ -513,7 +517,7 @@
       author: { '@type': 'Person', name: '0xDaVinci', url: SITE.url }
     };
     var share = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(m.title) + '&url=' + encodeURIComponent(url);
-    return '<!DOCTYPE html>\n<html lang="' + m.lang + '" data-root="../">\n<head>\n' +
+    return '<!DOCTYPE html>\n<html lang="ar" dir="rtl" data-root="../">\n<head>\n' +
       '<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n' +
       '<title>' + esc(title) + '</title>\n' +
       '<meta name="description" content="' + esc(m.description) + '">\n' +
@@ -527,17 +531,17 @@
       headCommon(root) + '\n' +
       '<script type="application/ld+json">' + jsonScript(ld) + '</script>\n' +
       '</head>\n<body class="page-article" data-slug="' + m.slug + '">\n' + sprite() + '\n' +
-      '<a class="skip" href="#main">Skip to content</a>\n<div class="progress" aria-hidden="true"><span></span></div>\n' +
+      '<a class="skip" href="#main">تخطَّ إلى المحتوى</a>\n<div class="progress" aria-hidden="true"><span></span></div>\n' +
       headerHtml(root, 'articles') + '\n' +
       '<main id="main" class="article-main">\n<div class="wrap article-layout" dir="' + m.dir + '">\n' +
       '<article class="article" lang="' + m.lang + '" dir="' + m.dir + '">\n' + articleHead(m, root) + '\n' +
       '<div class="prose">\n' + r.html + '\n</div>\n' +
-      '<footer class="article-foot" dir="ltr">' + (m.tags.length ? '<div class="article-tags">' + tagsHtml(m.tags) + '</div>' : '') +
-      '<div class="article-actions"><button type="button" class="btn btn--ghost" data-copy-link>copy link</button>' +
-      '<a class="btn btn--ghost" href="' + esc(share) + '" target="_blank" rel="noopener noreferrer">share on X</a>' +
-      '<a class="btn btn--ghost" href="#top">↑ top</a></div></footer>\n' +
+      '<footer class="article-foot">' + (m.tags.length ? '<div class="article-tags">' + tagsHtml(m.tags) + '</div>' : '') +
+      '<div class="article-actions"><button type="button" class="btn btn--ghost" data-copy-link>نسخ الرابط</button>' +
+      '<a class="btn btn--ghost" href="' + esc(share) + '" target="_blank" rel="noopener noreferrer">مشاركة على X</a>' +
+      '<a class="btn btn--ghost" href="#top">↑ للأعلى</a></div></footer>\n' +
       '</article>\n' + tocHtml(r.headings) + '\n</div>\n' +
-      '<section class="wrap more" data-more hidden><div class="section-head"><h2 class="section-title">Keep reading</h2></div><div class="more-grid"></div></section>\n' +
+      '<section class="wrap more" data-more hidden><div class="section-head"><h2 class="section-title">مقالات أخرى</h2></div><div class="more-grid"></div></section>\n' +
       '</main>\n' + footerHtml(root) + '\n' +
       '<script type="application/json" id="dv-source">' + jsonScript({ meta: postEntry(m, md), markdown: String(md) }) + '</script>\n' +
       '<script src="../js/posts.js"></script>\n<script src="../js/core.js"></script>\n<script src="../js/main.js"></script>\n' +
@@ -548,7 +552,7 @@
   return {
     SITE: SITE, HLJS: HLJS, MARK_PATH: MARK_PATH, MARK_VIEWBOX: MARK_VIEWBOX,
     esc: esc, fileSlug: fileSlug, formatDate: formatDate, today: today,
-    wordCount: wordCount, readingTime: readingTime, youtubeId: youtubeId,
+    wordCount: wordCount, readingTime: readingTime, minutes: minutes, youtubeId: youtubeId,
     renderMarkdown: renderMarkdown, normalizeMeta: normalizeMeta, postEntry: postEntry,
     sortPosts: sortPosts, parsePostsFile: parsePostsFile, postsFile: postsFile,
     assetUrl: assetUrl, sprite: sprite, headerHtml: headerHtml, footerHtml: footerHtml, headCommon: headCommon,
